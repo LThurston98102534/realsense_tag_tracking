@@ -28,7 +28,9 @@ Installation:
 - Navigate to ~/catkin_ws/src and type:
 
 $ git clone https://github.com/LThurston98102534/realsense_tag_tracking.git
+ 
 $ cd realsense_tag_tracking
+ 
 $ mv realsense_ar_tracking_2 ../
  
  
@@ -44,6 +46,7 @@ $ mv realsense_ar_tracking_2 ../
 - Navigate to ~/catkin_ws/ and type:
 
 $ catkin build
+ 
 $ roslaunch realsense_ar_tracking_2 realsense_track.launch
  
  
