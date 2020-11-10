@@ -1,6 +1,6 @@
 # realsense_tag_tracking
 
-Current ROS dependencies:
+Setup Instructions:
 
 1) ar_track_alvar
  
