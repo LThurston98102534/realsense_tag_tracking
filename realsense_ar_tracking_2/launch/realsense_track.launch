@@ -1,0 +1,23 @@
+<launch>
+ <!-- Arguments -->
+ <arg name="marker_size" default="6.0" />
+ <arg name="max_new_marker_error" default="0.08" />
+ <arg name="max_track_error" default="0.2" />
+ <arg name="bundle_files" default="$(find realsense_ar_tracking_2)/bundles/fridge.xml $(find realsense_ar_tracking_2)/bundles/sealer.xml" />
+ 
+ <arg name="cam_image_topic" default="/camera/color/image_raw" />
+ <arg name="cam_info_topic" default="/camera/color/camera_info" />
+ <arg name="output_frame" default="/camera_color_optical_frame" />
+ 
+ 
+<!-- Alvar Tracking Package -->
+<node name="ar_track_alvar" pkg="ar_track_alvar" type="findMarkerBundlesNoKinect" respawn="false" output="screen" args="$(arg marker_size) $(arg max_new_marker_error) $(arg max_track_error) $(arg cam_image_topic) $(arg cam_info_topic) $(arg output_frame) $(arg bundle_files)" />
+ 
+<!-- Broadcaster used to publish the relative transform from the Base to the Camera -->
+ <node name="tf_broadcaster_2" pkg="realsense_ar_tracking_2" type="tf_broadcaster_2" respawn="false" output="screen"/>
+
+<!-- Tag tracking Node -->
+ <node name="tracker_2" pkg="realsense_ar_tracking_2" type="tracker_2" respawn="false" output="screen"/>
+
+
+</launch>
